@@ -8,6 +8,7 @@ The repo contains a docker compose environment slightly adapted from [rgb-lib-py
 ### (Possible) next steps
 - [ ] Adapt for testnet (and eventually mainnet) usage
 - [ ] Separate minting service from recipient functionalities
+- [ ] Offer a web interfact that allows for uploading custom metadata
 - [ ] Offer a REST API (actix-web) instead of or in parallel to CLI (use async tokio throughout)
 - [ ] Further error handling 
 - [ ] Create documentation
