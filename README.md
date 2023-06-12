@@ -1,7 +1,7 @@
 # RGB Minting Service
-This is an RGB minting service for RGB121 NFTs controlled via a CLI tool. It is written in Rust and uses rgb-lib.
+This is an RGB minting service for RGB121 NFTs controlled via a CLI tool. It is written in Rust and uses [rgb-lib](https://github.com/RGB-Tools/rgb-lib).
 
-The repo contains a docker compose environment slightly adapted from rgb-lib-python/demo which is started via the script ``services.sh``. The CLI tool can be used to start two independent rgb clients: one as the minter and one as the recipient, both operated from two separate instances of the CLI tool.
+The repo contains a docker compose environment slightly adapted from [rgb-lib-python/demo](https://github.com/RGB-Tools/rgb-lib-python) which is started via the script ``services.sh``. The CLI tool can be used to start two independent rgb clients: one as the minter and one as the recipient, both operated from two separate instances of the CLI tool.
 
 **!! This is alpha software designed to run in a regtest environment !!**
 
