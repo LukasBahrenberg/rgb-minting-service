@@ -5,6 +5,16 @@ The repo contains a docker compose environment slightly adapted from [rgb-lib-py
 
 **!! This is alpha software designed to run in a regtest environment !!**
 
+### (Possible) next steps
+- [ ] Adapt for testnet (and eventually mainnet) usage
+- [ ] Separate minting service from recipient functionalities
+- [ ] Offer a REST API (actix-web) instead of or in parallel to CLI (use async tokio throughout)
+- [ ] Further error handling 
+- [ ] Create documentation
+- [ ] ...
+
+&nbsp;<br>
+
 ## Requirements
 You need to have Rust and Docker installed.
 
