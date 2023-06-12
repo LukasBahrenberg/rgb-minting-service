@@ -13,47 +13,76 @@ First clone the repo and change into the directory:
 
 ``cd rgb-minting-service``
 
+&nbsp;<br>
+
+### Start the shells
 Now, best open three separate shells next to each other:
 
-Shell 1) This will be the 'miner' shell. Start the environment from here with:
+**Shell 1:** (This will be the 'miner' shell. Start the environment from here with)
 
 ``./services.sh start``
 
-Shell 2) This will be the NFT recipient. Run the CLI tool via:
+**Shell 2:** (This will be the NFT recipient. Run the CLI tool via)
 
 ``cargo run``
 
-Shell 3) This will be the NFT minter. Run the CLI tool also via: 
+**Shell 3:** (This will be the NFT minter. Run the CLI tool also via)
 
 ``cargo run``
 
+&nbsp;<br>
+
+### Fund Bitcoin addresses
 Both CLI tools will output their ``bitcoin_address`` before accepting prompts. Copy both addresses separately and
 
-In Shell 1) run for both adresses separately:
+**Shell 1:** run for both adresses separately:
 
 ``./services.sh fund <bitcoin_address>``
 
+&nbsp;<br>
+
+
+### CLI tool usage
 Now that both rgb clients are funded, we can use the CLI tool. 
 
-Shell 2) The recipient can request a ``blinded_utxo`` via the command
+**Shell 2:** The recipient can request a ``blinded_utxo`` via the command
 
 ``getblindedutxo`` with no arguments. The output blinded utxo can then be used by the minter to issue and send an NFT to the recipient. 
 
-Shell 3) The minter runs in the CLI tool:
+**Shell 3:** The minter runs in the CLI tool:
 
 ``mint <nftname> <metadata_path> <blindedutxo>``
 
 The minter accepts a name, a path to the metadata and the above generated blinded utxo as arguments. For the path, the sample.png inside this repo can be taken for demonstration purposes and it is actually just the file name plus extension that should be used as the argument: ``sample.png``
 
-The minting command already includes the sending of the NFT to the recipient and also outputs the generated ``asset_id``. Now the status of the transfer can be checked in either CLI tool (Shell 2 or 3) via
+The minting command already includes the sending of the NFT to the recipient and also outputs the generated ``asset_id``.
 
-``listtransfers <asset_id>``
 
-The asset_id needs to be copied for that after the minting. The status of the transfer will only change if we mine additional blocks:
+&nbsp;<br>
 
-Shell 1) ``./services.sh mine 101``
+### Check status of transfers
 
-Now the status of the transfer should show settled. 
+The status of the transfer can be checked in either CLI tool. For this,  ``asset_id`` needs to be copied from the minting output. Run: 
+
+**Shell 2 or 3:** ``listtransfers <asset_id>``
+
+In both cases the output should show that the transfer is still waiting for confirmations. Therefore, we first need to mine more blocks: 
+
+**Shell 1:** ``./services.sh mine 1``
+
+Now we can list the transfers on the minter side, which also refreshes the wallet:
+
+**Shell 3:** ``listtransfers <asset_id>``
+
+Again mine more blocks:
+
+**Shell 1:** ``./services.sh mine 1``
+
+Also the recipient's side should show the transfer as settled now:
+
+**Shell 2:** ``listtransfers <asset_id>``
+
+
 
 
 
