@@ -1,3 +1,5 @@
+Disclaimer: This is alpha software designed to run in a regtest environment!
+
 # RGB Minting Service
 This is an RGB minting service for RGB121 NFTs controlled via a CLI tool. It is written in Rust and uses rgb-lib.
 
